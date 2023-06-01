@@ -3,20 +3,20 @@ apiVersion: v1
 kind: ReplicationController
 metadata:
   labels:
-    name: javawebapp
+    name: Lycanwebapp
   name: java-controller
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        name: javawebapp
+        name: Lycanwebapp
     spec:
       containers:
       - image: mylandmarktech/wfapp:v1
         name: javawebapp
         ports:
-        - name: javawebapp
+        - name: Lycanwebapp
           containerPort: 8080  
 ---
 # Node Port Service
@@ -24,12 +24,12 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    name: javawebapp
-  name: javawebapp
+    name: Lycanwebapp
+  name: Lycanwebapp
 spec:
   type: NodePort
   ports:
     - port: 8080
       targetPort: 8080
   selector:
-    name: javawebapp
+    name: Lycanwebapp
